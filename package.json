@@ -2,7 +2,7 @@
   "name": "react-github-profile",
   "version": "0.1.5",
   "author": "Your Name <tommypurcelljr@gmail.com>",
-  "main": "dist/GithubProfile.js",
+  "main": "GithubProfile.js",
   "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
