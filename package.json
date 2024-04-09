@@ -1,6 +1,6 @@
 {
   "name": "react-github-profile",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Your Name <tommypurcelljr@gmail.com>",
   "main": "dist/GithubProfile.js",
   "type": "module",
