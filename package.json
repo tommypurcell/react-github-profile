@@ -2,11 +2,6 @@
   "name": "react-github-profile",
   "version": "0.1.1",
   "type": "module",
-  "exports": {
-    ".": {
-      "import": "./dist/GithubProfile.js"
-    }
-  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

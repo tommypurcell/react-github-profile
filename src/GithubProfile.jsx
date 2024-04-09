@@ -16,9 +16,6 @@ const GitHubProfile = ({ userName, accessToken }) => {
     followers: null
   })
 
-  const login = user.login
-
-  console.log('login', login)
   // ensures that component receives a userName prop and that it is of type string. If userName is not provided or is of a different type, React will log a warning in the console during development. This helps catch bugs and improves the maintainability of your code by making the expected props clear.
   GitHubProfile.propTypes = {
     userName: PropTypes.string.isRequired
@@ -26,11 +23,8 @@ const GitHubProfile = ({ userName, accessToken }) => {
 
   const [isLoading, setIsLoading] = useState(true)
 
-  console.log(accessToken)
   async function getUserData(username) {
-    console.log('running getUserData')
     if (username) {
-      console.log('username is true')
       try {
         const response = await axios.get(
           `https://api.github.com/users/${username}`,
@@ -53,9 +47,6 @@ const GitHubProfile = ({ userName, accessToken }) => {
   }
 
   useEffect(() => {
-    console.log(user)
-    console.log(user.avatar_url)
-    console.log(user.public_repos)
     getUserData(userName)
   }, [])
 
@@ -69,7 +60,6 @@ const GitHubProfile = ({ userName, accessToken }) => {
             className=" rounded-full w-48"
           />
         )}
-
         <div className="grid grid-cols-2 gap-1 mt-2">
           <div className="flex flex-col">
             <p className="text-3xl text-left">{user.name}</p>
@@ -96,9 +86,7 @@ const GitHubProfile = ({ userName, accessToken }) => {
               loading={isLoading}
             />
           )}
-        </div>
-
-        {/* Add more fields as needed */}
+        </div>{' '}
       </div>
     </div>
   )
