@@ -1,5 +1,5 @@
 import './App.css'
-import GitHubProfile from './GithubProfile'
+import GitHubProfile from './GitHubProfile'
 import './output.css'
 
 function App() {
