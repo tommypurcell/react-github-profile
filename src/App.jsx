@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <GitHubProfile
-        userName={'ynotrusso'}
+        userName={'tommypurcell'}
         accessToken={process.env.REACT_APP_ACCESS_TOKEN} // Accessing environment variable directly
       />
     </div>
