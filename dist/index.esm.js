@@ -1,19 +1,8 @@
 'use client';
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var React = require('react');
-var axios = require('axios');
-var GitHubCalendar = require('react-github-calendar');
-var PropTypes = require('prop-types');
-
-function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
-
-var React__default = /*#__PURE__*/_interopDefault(React);
-var axios__default = /*#__PURE__*/_interopDefault(axios);
-var GitHubCalendar__default = /*#__PURE__*/_interopDefault(GitHubCalendar);
-var PropTypes__default = /*#__PURE__*/_interopDefault(PropTypes);
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import GitHubCalendar from 'react-github-calendar';
+import PropTypes from 'prop-types';
 
 function _arrayLikeToArray(r, a) {
   (null == a || a > r.length) && (a = r.length);
@@ -390,7 +379,7 @@ function _unsupportedIterableToArray(r, a) {
 var GitHubProfile = function GitHubProfile(_ref) {
   var userName = _ref.userName,
     accessToken = _ref.accessToken;
-  var _useState = React.useState({
+  var _useState = useState({
       avatar_url: null,
       login: null,
       name: null,
@@ -404,9 +393,9 @@ var GitHubProfile = function GitHubProfile(_ref) {
 
   // ensures that component receives a userName prop and that it is of type string. If userName is not provided or is of a different type, React will log a warning in the console during development. This helps catch bugs and improves the maintainability of your code by making the expected props clear.
   GitHubProfile.propTypes = {
-    userName: PropTypes__default.default.string.isRequired
+    userName: PropTypes.string.isRequired
   };
-  var _useState3 = React.useState(true),
+  var _useState3 = useState(true),
     _useState4 = _slicedToArray(_useState3, 2),
     isLoading = _useState4[0],
     setIsLoading = _useState4[1];
@@ -425,7 +414,7 @@ var GitHubProfile = function GitHubProfile(_ref) {
             }
             _context.prev = 1;
             _context.next = 4;
-            return axios__default.default.get("https://api.github.com/users/".concat(username), {
+            return axios.get("https://api.github.com/users/".concat(username), {
               headers: {
                 Accept: 'application/vnd.github.v3+json',
                 // Use the v3 version of the API
@@ -453,28 +442,28 @@ var GitHubProfile = function GitHubProfile(_ref) {
     }));
     return _getUserData.apply(this, arguments);
   }
-  React.useEffect(function () {
+  useEffect(function () {
     getUserData(userName);
   }, []);
-  return /*#__PURE__*/React__default.default.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "flex items-center justify-center"
-  }, /*#__PURE__*/React__default.default.createElement("div", null, user.avatar_url === null ? null : /*#__PURE__*/React__default.default.createElement("img", {
+  }, /*#__PURE__*/React.createElement("div", null, user.avatar_url === null ? null : /*#__PURE__*/React.createElement("img", {
     src: user.avatar_url,
     alt: "user github",
     className: " rounded-full w-48"
-  }), /*#__PURE__*/React__default.default.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "grid grid-cols-2 gap-1 mt-2"
-  }, /*#__PURE__*/React__default.default.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "flex flex-col"
-  }, /*#__PURE__*/React__default.default.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-3xl text-left"
-  }, user.name), /*#__PURE__*/React__default.default.createElement("p", {
+  }, user.name), /*#__PURE__*/React.createElement("p", {
     className: "text-xl px-2 text-gray-400 text-left"
-  }, user.login), user.bio === null ? null : /*#__PURE__*/React__default.default.createElement("p", null, user.bio)), /*#__PURE__*/React__default.default.createElement("div", {
+  }, user.login), user.bio === null ? null : /*#__PURE__*/React.createElement("p", null, user.bio)), /*#__PURE__*/React.createElement("div", {
     className: "flex flex-col text-right"
-  }, user.public_repos === null ? null : /*#__PURE__*/React__default.default.createElement("p", null, "Public repos: ", user.public_repos), user.followers === null ? null : /*#__PURE__*/React__default.default.createElement("p", null, "Followers: ", user.followers))), /*#__PURE__*/React__default.default.createElement("div", {
+  }, user.public_repos === null ? null : /*#__PURE__*/React.createElement("p", null, "Public repos: ", user.public_repos), user.followers === null ? null : /*#__PURE__*/React.createElement("p", null, "Followers: ", user.followers))), /*#__PURE__*/React.createElement("div", {
     className: "mt-5 border border-zinc-200 rounded-lg p-5 overflow-x-auto"
-  }, user.login && /*#__PURE__*/React__default.default.createElement(GitHubCalendar__default.default, {
+  }, user.login && /*#__PURE__*/React.createElement(GitHubCalendar, {
     username: user.login,
     blockSize: 7 // Smaller block size
     ,
@@ -488,6 +477,5 @@ var GitHubProfile = function GitHubProfile(_ref) {
   })), ' '));
 };
 
-exports.GitHubProfile = GitHubProfile;
-exports.default = GitHubProfile;
-//# sourceMappingURL=index.js.map
+export { GitHubProfile, GitHubProfile as default };
+//# sourceMappingURL=index.esm.js.map

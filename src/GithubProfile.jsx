@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 // GithubProfile.jsx
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import GitHubCalendar from 'react-github-calendar'
 import PropTypes from 'prop-types'
-import './output.css'
 
 const GitHubProfile = ({ userName, accessToken }) => {
   const [user, setUser] = useState({
