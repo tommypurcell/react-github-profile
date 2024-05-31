@@ -36,19 +36,18 @@ const GitHubProfile = ({ userName, accessToken }) => {
           }
         )
         setUser(response.data)
-        // set loading false after user data arrives
-        if (user) {
-          setIsLoading(false)
-        }
       } catch (error) {
         console.error('Error fetching GitHub data', error)
+      } finally {
+        // Will always be called (both for `try` and `catch`)
+        setIsLoading(false);
       }
     }
   }
 
   useEffect(() => {
     getUserData(userName)
-  }, [])
+  }, [userName])
 
   return (
     <div className="flex items-center justify-center">
