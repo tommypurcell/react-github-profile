@@ -31,7 +31,7 @@ const GitHubProfile = ({ userName, accessToken }) => {
           {
             headers: {
               Accept: 'application/vnd.github.v3+json', // Use the v3 version of the API
-              Authorization: `Bearer ${accessToken}` // Include your access token in the Authorization header
+              // Authorization: `Bearer ${accessToken}` // Include your access token in the Authorization header
             }
           }
         )
