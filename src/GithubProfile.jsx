@@ -86,7 +86,7 @@ const GitHubProfile = ({ userName, accessToken }) => {
               loading={isLoading}
             />
           )}
-        </div>{' '}
+        </div>
       </div>
     </div>
   )
