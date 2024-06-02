@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 // GithubProfile.jsx
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import GitHubCalendar from 'react-github-calendar'
 import PropTypes from 'prop-types'
 
-const GitHubProfile = ({ userName, accessToken }) => {
+const GitHubProfile = ({ userName }) => {
   const [user, setUser] = useState({
     avatar_url: null,
     login: null,
@@ -16,34 +16,27 @@ const GitHubProfile = ({ userName, accessToken }) => {
     followers: null
   })
 
-  // ensures that component receives a userName prop and that it is of type string. If userName is not provided or is of a different type, React will log a warning in the console during development. This helps catch bugs and improves the maintainability of your code by making the expected props clear.
   GitHubProfile.propTypes = {
     userName: PropTypes.string.isRequired
   }
 
   const [isLoading, setIsLoading] = useState(true)
 
-  async function getUserData(username) {
-    if (username) {
-      try {
-        const response = await axios.get(
-          `https://api.github.com/users/${username}`,
-          {
-            headers: {
-              Accept: 'application/vnd.github.v3+json', // Use the v3 version of the API
-              // Authorization: `Bearer ${accessToken}` // Include your access token in the Authorization header
-            }
-          }
-        )
-        setUser(response.data)
-      } catch (error) {
-        console.error('Error fetching GitHub data', error)
-      } finally {
-        // Will always be called (both for `try` and `catch`)
-        setIsLoading(false);
-      }
+async function getUserData(username) {
+  if (username) {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(`https://api.github.com/users/${username}`);
+      console.log(response.data);
+      setUser(response.data);
+    } catch (error) {
+      console.error('Error fetching GitHub data:', error.response ? error.response.data : error.message);
+    } finally {
+      setIsLoading(false);
     }
   }
+}
+
 
   useEffect(() => {
     getUserData(userName)
