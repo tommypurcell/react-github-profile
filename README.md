@@ -102,13 +102,6 @@ Make a new branch for your changes and push your changes to this branch.
  Once your pull request is approved and merged, you're done! Thanks for contributing. :)
 
 
-### Steps to contribute
-1. Review the issues section of the github repo [here](https://github.com/tommypurcell/react-github-profile/issues) to find something to work on.
-1. Clone the project
-1. Make a new branch and push changes to your new branch
-1. Submit a pull request to merge your branch into main
-1. Wait for review and fix an requested changes
-1. Done! Thanks for Contributing :)
 
 
 
