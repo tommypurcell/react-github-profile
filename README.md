@@ -81,9 +81,6 @@ export default App
 - [react-github-calendar](https://www.npmjs.com/package/react-github-calendar): React component to display a user's GitHub activity calendar.
 - [prop-types](https://www.npmjs.com/package/prop-types): Runtime type checking for React props.
 
-## Contributing
-
-Hi and thank you for your interest in the React GitHub Profile. 
 
 ## Contributing
 
