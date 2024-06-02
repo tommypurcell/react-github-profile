@@ -377,8 +377,7 @@ function _unsupportedIterableToArray(r, a) {
 }
 
 var GitHubProfile = function GitHubProfile(_ref) {
-  var userName = _ref.userName,
-    accessToken = _ref.accessToken;
+  var userName = _ref.userName;
   var _useState = useState({
       avatar_url: null,
       login: null,
@@ -390,8 +389,6 @@ var GitHubProfile = function GitHubProfile(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     user = _useState2[0],
     setUser = _useState2[1];
-
-  // ensures that component receives a userName prop and that it is of type string. If userName is not provided or is of a different type, React will log a warning in the console during development. This helps catch bugs and improves the maintainability of your code by making the expected props clear.
   GitHubProfile.propTypes = {
     userName: PropTypes.string.isRequired
   };
@@ -409,42 +406,38 @@ var GitHubProfile = function GitHubProfile(_ref) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
             if (!username) {
-              _context.next = 12;
+              _context.next = 16;
               break;
             }
-            _context.prev = 1;
-            _context.next = 4;
-            return axios.get("https://api.github.com/users/".concat(username), {
-              headers: {
-                Accept: 'application/vnd.github.v3+json',
-                // Use the v3 version of the API
-                Authorization: "Bearer ".concat(accessToken) // Include your access token in the Authorization header
-              }
-            });
-          case 4:
+            setIsLoading(true);
+            _context.prev = 2;
+            _context.next = 5;
+            return axios.get("https://api.github.com/users/".concat(username));
+          case 5:
             response = _context.sent;
+            console.log(response.data);
             setUser(response.data);
-            // set loading false after user data arrives
-            if (user) {
-              setIsLoading(false);
-            }
-            _context.next = 12;
+            _context.next = 13;
             break;
-          case 9:
-            _context.prev = 9;
-            _context.t0 = _context["catch"](1);
-            console.error('Error fetching GitHub data', _context.t0);
-          case 12:
+          case 10:
+            _context.prev = 10;
+            _context.t0 = _context["catch"](2);
+            console.error('Error fetching GitHub data:', _context.t0.response ? _context.t0.response.data : _context.t0.message);
+          case 13:
+            _context.prev = 13;
+            setIsLoading(false);
+            return _context.finish(13);
+          case 16:
           case "end":
             return _context.stop();
         }
-      }, _callee, null, [[1, 9]]);
+      }, _callee, null, [[2, 10, 13, 16]]);
     }));
     return _getUserData.apply(this, arguments);
   }
   useEffect(function () {
     getUserData(userName);
-  }, []);
+  }, [userName]);
   return /*#__PURE__*/React.createElement("div", {
     className: "flex items-center justify-center"
   }, /*#__PURE__*/React.createElement("div", null, user.avatar_url === null ? null : /*#__PURE__*/React.createElement("img", {
@@ -474,7 +467,7 @@ var GitHubProfile = function GitHubProfile(_ref) {
     hideColorLegend: true // Hides the color legend to save space
     ,
     loading: isLoading
-  })), ' '));
+  }))));
 };
 
 export { GitHubProfile, GitHubProfile as default };

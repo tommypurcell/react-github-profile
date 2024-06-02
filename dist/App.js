@@ -13,7 +13,6 @@ function App() {
     className: "App"
   }, /*#__PURE__*/React.createElement(_GithubProfile.default, {
     userName: 'ynotrusso',
-    accessToken: process.env.REACT_APP_ACCESS_TOKEN // Accessing environment variable directly
   }));
 }
 var _default = exports.default = App;

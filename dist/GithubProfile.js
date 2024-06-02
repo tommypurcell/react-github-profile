@@ -17,7 +17,7 @@ function _interopRequireDefault(obj) {
 // GithubProfile.jsx
 
 const GitHubProfile = (_ref) => {
-  let { userName, accessToken } = _ref
+  let { userName } = _ref
   const [user, setUser] = (0, _react.useState)({
     avatar_url: null,
     login: null,
