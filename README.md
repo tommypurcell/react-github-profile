@@ -1,5 +1,12 @@
 # GitHubProfile.jsx
 
+<!-- <h2 style="color: red;">v0.2.0 THIS PROJECT IS CURRENTLY UNDER CONSTRUCTION. PLEASE CHECK BACK SHORTLY FOR AN UPDATED VERSION WITH BUG FIXES.</h2> -->
+
+### Please note that this project is in progress. If you encounter bugs please report them in the [issues section](https://github.com/tommypurcell/react-github-profile/issues) of the GitHub repo.
+
+
+### Also, please feel free to contribute! (See [Contributing](#contributing) below)
+
 ## Description
 
 GitHubProfile is a React component designed to display a user's GitHub profile information and activity. It retrieves data from the GitHub API, including user details such as avatar, name, bio, public repositories, and followers. Additionally, it renders a GitHub activity calendar using the `react-github-calendar` package.
@@ -8,20 +15,22 @@ GitHubProfile is a React component designed to display a user's GitHub profile i
 
 ## How it works
 
-`<GitHubProfile />` accepts two props:
+`<GitHubProfile />` accepts the following props:
 
 - `userName`: The GitHub username of the user whose profile you want to display.
-- `accessToken`: Your GitHub access token. This is required if you want to access user data from private repositories or if you encounter rate-limiting issues.
 
 ## Example usage
 
-`<GitHubProfile userName={'tommypurcell'} accessToken={yourGithubAccessToken}`>
+```jsx
+<GitHubProfile userName="tommypurcell" />
+```
+
 
 ## Installation
 
 To use the GitHubProfile.jsx component in your React project, follow these steps:
 
-1. Install the required dependencies:
+1. Install the required dependencies
 
    ```bash
    npm install axios react-github-calendar prop-types
@@ -39,7 +48,6 @@ To use the GitHubProfile.jsx component in your React project, follow these steps
    ```javascript
    <GitHubProfile
      userName="yourGitHubUsername"
-     accessToken="yourGitHubAccessToken"
    />
    ```
 
@@ -48,7 +56,6 @@ To use the GitHubProfile.jsx component in your React project, follow these steps
 ### Props
 
 - `userName` (required): The GitHub username of the user whose profile you want to display.
-- `accessToken` (optional): Your GitHub access token. This is required if you want to access user data from private repositories or if you encounter rate-limiting issues.
 
 ### Example
 
@@ -60,7 +67,7 @@ function App() {
   return (
     <div>
       <h1>GitHub Profile</h1>
-      <GitHubProfile userName="octocat" accessToken="yourAccessToken" />
+      <GitHubProfile userName="octocat" />
     </div>
   )
 }
@@ -73,6 +80,40 @@ export default App
 - [axios](https://www.npmjs.com/package/axios): Promise-based HTTP client for making requests to the GitHub API.
 - [react-github-calendar](https://www.npmjs.com/package/react-github-calendar): React component to display a user's GitHub activity calendar.
 - [prop-types](https://www.npmjs.com/package/prop-types): Runtime type checking for React props.
+
+## Contributing
+
+Hi and thank you for your interest in the React GitHub Profile. 
+
+## Contributing
+
+Thank you for your interest in contributing to the React GitHub Profile component! Follow these steps to contribute:
+
+### Steps to Contribute
+
+1. **Review Issues**
+Check the [issues section](https://github.com/tommypurcell/react-github-profile/issues) of the GitHub repo to find something to work on.
+2. **Clone the Project**
+Clone the repository to your local machine.
+3. **Create a New Branch** 
+Make a new branch for your changes and push your changes to this branch.
+4. **Submit a Pull Request**
+ Submit a pull request to merge your branch into the main branch.
+5. **Wait for Review**
+ Wait for your pull request to be reviewed and make any requested changes.
+6. **Done!**
+ Once your pull request is approved and merged, you're done! Thanks for contributing. :)
+
+
+### Steps to contribute
+1. Review the issues section of the github repo [here](https://github.com/tommypurcell/react-github-profile/issues) to find something to work on.
+1. Clone the project
+1. Make a new branch and push changes to your new branch
+1. Submit a pull request to merge your branch into main
+1. Wait for review and fix an requested changes
+1. Done! Thanks for Contributing :)
+
+
 
 ## License
 
