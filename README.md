@@ -89,7 +89,10 @@ Thank you for your interest in contributing to the React GitHub Profile componen
 ### Steps to Contribute
 
 1. **Review Issues**
-Check the [issues section](https://github.com/tommypurcell/react-github-profile/issues) of the GitHub repo to find something to work on.
+
+- Check the [issues section](https://github.com/tommypurcell/react-github-profile/issues) to find something to work on.
+- If you have a new idea, create a new issue and describe it.
+- **Discussion**: Please discuss the issue with the maintainers before starting to ensure alignment and avoid wasted effort.
 2. **Clone the Project**
 Clone the repository to your local machine.
 3. **Create a New Branch** 
