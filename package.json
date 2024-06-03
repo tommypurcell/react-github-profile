@@ -2,7 +2,7 @@
   "name": "react-github-profile",
   "version": "0.2.1",
   "author": "Tommy Purcell <tommypurcelljr@gmail.com>",
-  "repository": "grubersjoe/react-github-calendar",
+  "repository": "tommypurcell/react-github-profile",
   "type": "module",
   "description": "A React component for displaying a Github Profile",
   "main": "dist/index.js",
