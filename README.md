@@ -4,8 +4,9 @@
 
 ### Please note that this project is in progress. If you encounter bugs please report them in the [issues section](https://github.com/tommypurcell/react-github-profile/issues) of the GitHub repo.
 
-
 ### Also, please feel free to contribute! (See [Contributing](#contributing) below)
+
+## View npm package [here](https://www.npmjs.com/package/react-github-profile)
 
 ## Description
 
@@ -24,7 +25,6 @@ GitHubProfile is a React component designed to display a user's GitHub profile i
 ```jsx
 <GitHubProfile userName="tommypurcell" />
 ```
-
 
 ## Installation
 
@@ -46,9 +46,7 @@ To use the GitHubProfile.jsx component in your React project, follow these steps
 
 4. Render the component in your application, passing the required props:
    ```javascript
-   <GitHubProfile
-     userName="yourGitHubUsername"
-   />
+   <GitHubProfile userName="yourGitHubUsername" />
    ```
 
 ## Usage
@@ -81,7 +79,6 @@ export default App
 - [react-github-calendar](https://www.npmjs.com/package/react-github-calendar): React component to display a user's GitHub activity calendar.
 - [prop-types](https://www.npmjs.com/package/prop-types): Runtime type checking for React props.
 
-
 ## Contributing
 
 Thank you for your interest in contributing to the React GitHub Profile component! Follow these steps to contribute:
@@ -93,20 +90,17 @@ Thank you for your interest in contributing to the React GitHub Profile componen
 - Check the [issues section](https://github.com/tommypurcell/react-github-profile/issues) to find something to work on.
 - If you have a new idea, create a new issue and describe it.
 - **Discussion**: Please discuss the issue with the maintainers before starting to ensure alignment and avoid wasted effort.
+
 2. **Clone the Project**
-Clone the repository to your local machine.
-3. **Create a New Branch** 
-Make a new branch for your changes and push your changes to this branch.
+   Clone the repository to your local machine.
+3. **Create a New Branch**
+   Make a new branch for your changes and push your changes to this branch.
 4. **Submit a Pull Request**
- Submit a pull request to merge your branch into the main branch.
+   Submit a pull request to merge your branch into the main branch.
 5. **Wait for Review**
- Wait for your pull request to be reviewed and make any requested changes.
+   Wait for your pull request to be reviewed and make any requested changes.
 6. **Done!**
- Once your pull request is approved and merged, you're done! Thanks for contributing. :)
-
-
-
-
+   Once your pull request is approved and merged, you're done! Thanks for contributing. :)
 
 ## License
 
