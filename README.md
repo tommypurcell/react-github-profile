@@ -41,7 +41,7 @@ To use the GitHubProfile.jsx component in your React project, follow these steps
 3. Import the component into your React application:
 
    ```javascript
-   import GitHubProfile from './GitHubProfile.jsx'
+  import GitHubProfile from 'react-github-profile'
    ```
 
 4. Render the component in your application, passing the required props:
@@ -59,7 +59,7 @@ To use the GitHubProfile.jsx component in your React project, follow these steps
 
 ```javascript
 import React from 'react'
-import GitHubProfile from './GitHubProfile.jsx'
+import GitHubProfile from 'react-github-profile'
 
 function App() {
   return (
