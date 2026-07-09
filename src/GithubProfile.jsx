@@ -1,12 +1,19 @@
-/* eslint-disable react/prop-types */
 // GithubProfile.jsx
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios'
 import GitHubCalendar from 'react-github-calendar'
 import PropTypes from 'prop-types'
 
-const GitHubProfile = ({ userName }) => {
+// chroma-js (used by react-activity-calendar) rejects the CSS keyword "transparent"
+const emptyCellColor = 'rgba(0, 0, 0, 0)'
+
+const transparentCalendarTheme = {
+  light: [emptyCellColor, '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+  dark: [emptyCellColor, '#9be9a8', '#40c463', '#30a14e', '#216e39']
+}
+
+const GitHubProfile = ({ userName, transparentBackground = false }) => {
   const [user, setUser] = useState({
     avatar_url: null,
     login: null,
@@ -15,10 +22,6 @@ const GitHubProfile = ({ userName }) => {
     public_repos: null,
     followers: null
   })
-
-  GitHubProfile.propTypes = {
-    userName: PropTypes.string.isRequired
-  }
 
   const [isLoading, setIsLoading] = useState(true)
 
@@ -67,7 +70,11 @@ async function getUserData(username) {
             )}
           </div>
         </div>
-        <div className="mt-5 border border-zinc-200 rounded-lg p-5 overflow-x-auto">
+        <div
+          className={`mt-5 overflow-x-auto ${
+            transparentBackground ? '' : 'rounded-lg border border-zinc-200 p-5'
+          }`}
+        >
           {user.login && (
             <GitHubCalendar
               username={user.login}
@@ -76,12 +83,18 @@ async function getUserData(username) {
               fontSize={12} // Smaller font size
               hideColorLegend // Hides the color legend to save space
               loading={isLoading}
+              theme={transparentBackground ? transparentCalendarTheme : undefined}
             />
           )}
         </div>
       </div>
     </div>
   )
+}
+
+GitHubProfile.propTypes = {
+  userName: PropTypes.string.isRequired,
+  transparentBackground: PropTypes.bool
 }
 
 export default GitHubProfile

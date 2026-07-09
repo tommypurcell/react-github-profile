@@ -19,11 +19,16 @@ GitHubProfile is a React component designed to display a user's GitHub profile i
 `<GitHubProfile />` accepts the following props:
 
 - `userName`: The GitHub username of the user whose profile you want to display.
+- `transparentBackground`: Optional boolean. When `true`, the calendar wrapper chrome is removed and empty calendar cells become transparent.
 
 ## Example usage
 
 ```jsx
 <GitHubProfile userName="tommypurcell" />
+```
+
+```jsx
+<GitHubProfile userName="tommypurcell" transparentBackground />
 ```
 
 ## Installation
@@ -54,6 +59,7 @@ To use the GitHubProfile.jsx component in your React project, follow these steps
 ### Props
 
 - `userName` (required): The GitHub username of the user whose profile you want to display.
+- `transparentBackground` (optional): Removes the bordered calendar container and makes empty contribution cells transparent.
 
 ### Example
 
@@ -66,6 +72,7 @@ function App() {
     <div>
       <h1>GitHub Profile</h1>
       <GitHubProfile userName="octocat" />
+      <GitHubProfile userName="octocat" transparentBackground />
     </div>
   )
 }

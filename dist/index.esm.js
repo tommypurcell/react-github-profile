@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import GitHubCalendar from 'react-github-calendar';
 import PropTypes from 'prop-types';
@@ -376,8 +376,16 @@ function _unsupportedIterableToArray(r, a) {
   }
 }
 
+// chroma-js (used by react-activity-calendar) rejects the CSS keyword "transparent"
+var emptyCellColor = 'rgba(0, 0, 0, 0)';
+var transparentCalendarTheme = {
+  light: [emptyCellColor, '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+  dark: [emptyCellColor, '#9be9a8', '#40c463', '#30a14e', '#216e39']
+};
 var GitHubProfile = function GitHubProfile(_ref) {
-  var userName = _ref.userName;
+  var userName = _ref.userName,
+    _ref$transparentBackg = _ref.transparentBackground,
+    transparentBackground = _ref$transparentBackg === void 0 ? false : _ref$transparentBackg;
   var _useState = useState({
       avatar_url: null,
       login: null,
@@ -389,9 +397,6 @@ var GitHubProfile = function GitHubProfile(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     user = _useState2[0],
     setUser = _useState2[1];
-  GitHubProfile.propTypes = {
-    userName: PropTypes.string.isRequired
-  };
   var _useState3 = useState(true),
     _useState4 = _slicedToArray(_useState3, 2),
     isLoading = _useState4[0],
@@ -455,7 +460,7 @@ var GitHubProfile = function GitHubProfile(_ref) {
   }, user.login), user.bio === null ? null : /*#__PURE__*/React.createElement("p", null, user.bio)), /*#__PURE__*/React.createElement("div", {
     className: "flex flex-col text-right"
   }, user.public_repos === null ? null : /*#__PURE__*/React.createElement("p", null, "Public repos: ", user.public_repos), user.followers === null ? null : /*#__PURE__*/React.createElement("p", null, "Followers: ", user.followers))), /*#__PURE__*/React.createElement("div", {
-    className: "mt-5 border border-zinc-200 rounded-lg p-5 overflow-x-auto"
+    className: "mt-5 overflow-x-auto ".concat(transparentBackground ? '' : 'rounded-lg border border-zinc-200 p-5')
   }, user.login && /*#__PURE__*/React.createElement(GitHubCalendar, {
     username: user.login,
     blockSize: 7 // Smaller block size
@@ -466,8 +471,13 @@ var GitHubProfile = function GitHubProfile(_ref) {
     ,
     hideColorLegend: true // Hides the color legend to save space
     ,
-    loading: isLoading
+    loading: isLoading,
+    theme: transparentBackground ? transparentCalendarTheme : undefined
   }))));
+};
+GitHubProfile.propTypes = {
+  userName: PropTypes.string.isRequired,
+  transparentBackground: PropTypes.bool
 };
 
 export { GitHubProfile, GitHubProfile as default };

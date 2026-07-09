@@ -3,14 +3,13 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var React = require('react');
+var react = require('react');
 var axios = require('axios');
 var GitHubCalendar = require('react-github-calendar');
 var PropTypes = require('prop-types');
 
 function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
-var React__default = /*#__PURE__*/_interopDefault(React);
 var axios__default = /*#__PURE__*/_interopDefault(axios);
 var GitHubCalendar__default = /*#__PURE__*/_interopDefault(GitHubCalendar);
 var PropTypes__default = /*#__PURE__*/_interopDefault(PropTypes);
@@ -387,9 +386,17 @@ function _unsupportedIterableToArray(r, a) {
   }
 }
 
+// chroma-js (used by react-activity-calendar) rejects the CSS keyword "transparent"
+var emptyCellColor = 'rgba(0, 0, 0, 0)';
+var transparentCalendarTheme = {
+  light: [emptyCellColor, '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+  dark: [emptyCellColor, '#9be9a8', '#40c463', '#30a14e', '#216e39']
+};
 var GitHubProfile = function GitHubProfile(_ref) {
-  var userName = _ref.userName;
-  var _useState = React.useState({
+  var userName = _ref.userName,
+    _ref$transparentBackg = _ref.transparentBackground,
+    transparentBackground = _ref$transparentBackg === void 0 ? false : _ref$transparentBackg;
+  var _useState = react.useState({
       avatar_url: null,
       login: null,
       name: null,
@@ -400,10 +407,7 @@ var GitHubProfile = function GitHubProfile(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     user = _useState2[0],
     setUser = _useState2[1];
-  GitHubProfile.propTypes = {
-    userName: PropTypes__default.default.string.isRequired
-  };
-  var _useState3 = React.useState(true),
+  var _useState3 = react.useState(true),
     _useState4 = _slicedToArray(_useState3, 2),
     isLoading = _useState4[0],
     setIsLoading = _useState4[1];
@@ -446,28 +450,28 @@ var GitHubProfile = function GitHubProfile(_ref) {
     }));
     return _getUserData.apply(this, arguments);
   }
-  React.useEffect(function () {
+  react.useEffect(function () {
     getUserData(userName);
   }, [userName]);
-  return /*#__PURE__*/React__default.default.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "flex items-center justify-center"
-  }, /*#__PURE__*/React__default.default.createElement("div", null, user.avatar_url === null ? null : /*#__PURE__*/React__default.default.createElement("img", {
+  }, /*#__PURE__*/React.createElement("div", null, user.avatar_url === null ? null : /*#__PURE__*/React.createElement("img", {
     src: user.avatar_url,
     alt: "user github",
     className: " rounded-full w-48"
-  }), /*#__PURE__*/React__default.default.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "grid grid-cols-2 gap-1 mt-2"
-  }, /*#__PURE__*/React__default.default.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "flex flex-col"
-  }, /*#__PURE__*/React__default.default.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-3xl text-left"
-  }, user.name), /*#__PURE__*/React__default.default.createElement("p", {
+  }, user.name), /*#__PURE__*/React.createElement("p", {
     className: "text-xl px-2 text-gray-400 text-left"
-  }, user.login), user.bio === null ? null : /*#__PURE__*/React__default.default.createElement("p", null, user.bio)), /*#__PURE__*/React__default.default.createElement("div", {
+  }, user.login), user.bio === null ? null : /*#__PURE__*/React.createElement("p", null, user.bio)), /*#__PURE__*/React.createElement("div", {
     className: "flex flex-col text-right"
-  }, user.public_repos === null ? null : /*#__PURE__*/React__default.default.createElement("p", null, "Public repos: ", user.public_repos), user.followers === null ? null : /*#__PURE__*/React__default.default.createElement("p", null, "Followers: ", user.followers))), /*#__PURE__*/React__default.default.createElement("div", {
-    className: "mt-5 border border-zinc-200 rounded-lg p-5 overflow-x-auto"
-  }, user.login && /*#__PURE__*/React__default.default.createElement(GitHubCalendar__default.default, {
+  }, user.public_repos === null ? null : /*#__PURE__*/React.createElement("p", null, "Public repos: ", user.public_repos), user.followers === null ? null : /*#__PURE__*/React.createElement("p", null, "Followers: ", user.followers))), /*#__PURE__*/React.createElement("div", {
+    className: "mt-5 overflow-x-auto ".concat(transparentBackground ? '' : 'rounded-lg border border-zinc-200 p-5')
+  }, user.login && /*#__PURE__*/React.createElement(GitHubCalendar__default.default, {
     username: user.login,
     blockSize: 7 // Smaller block size
     ,
@@ -477,8 +481,13 @@ var GitHubProfile = function GitHubProfile(_ref) {
     ,
     hideColorLegend: true // Hides the color legend to save space
     ,
-    loading: isLoading
+    loading: isLoading,
+    theme: transparentBackground ? transparentCalendarTheme : undefined
   }))));
+};
+GitHubProfile.propTypes = {
+  userName: PropTypes__default.default.string.isRequired,
+  transparentBackground: PropTypes__default.default.bool
 };
 
 exports.GitHubProfile = GitHubProfile;
